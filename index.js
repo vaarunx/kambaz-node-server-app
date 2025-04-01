@@ -7,7 +7,6 @@ import session from "express-session";
 import "dotenv/config";
 
 const app = express();
-UserRoutes(app);
 
 app.use(
   cors({
@@ -31,6 +30,8 @@ if (process.env.NODE_ENV !== "development") {
 
 app.use(session(sessionOptions));
 app.use(express.json());
+
+UserRoutes(app);
 
 Lab5(app);
 Hello(app);

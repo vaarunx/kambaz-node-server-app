@@ -26,6 +26,11 @@ export default function UserRoutes(app) {
   };
 
   const signin = (req, res) => {
+    // console.log("Hello",  req)
+    // console.log("This is req")
+    // console.log(req.json)
+    // console.log("This is res")
+    // console.log(res.body)
     const { username, password } = req.body;
     console.log(username, password);
     const currentUser = dao.findUserByCredentials(username, password);
@@ -41,6 +46,12 @@ export default function UserRoutes(app) {
     res.sendStatus(200);
   };
   const profile = async (req, res) => {
+    console.log("Hello",  req)
+    console.log("This is req")
+    console.log(req)
+    console.log("This is res")
+    console.log(req)
+
     const currentUser = req.session["currentUser"];
     if (!currentUser) {
       res.sendStatus(401);
