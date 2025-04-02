@@ -1,4 +1,7 @@
 import * as dao from "./dao.js";
+import * as courseDao from "../Courses/dao.js";
+import * as enrollmentsDao from "../Enrollments/dao.js";
+
 let currentUser = null;
 export default function UserRoutes(app) {
   const createUser = (req, res) => {};
@@ -13,6 +16,42 @@ export default function UserRoutes(app) {
     req.session["currentUser"] = currentUser;
     res.json(currentUser);
   };
+
+  app.delete("/api/courses/:courseId", (req, res) => {
+    const { courseId } = req.params;
+    const status = courseDao.deleteCourse(courseId);
+    res.send(status);
+  });
+
+
+  const createCourse = (req, res) => {
+    console.log("req")
+    console.log(req.session)
+    const currentUser = req.session["currentUser"];
+    const newCourse = courseDao.createCourse(req.body);
+    console.log("Came hereeee")
+    console.log(currentUser)
+    console.log("newCourse")
+    console.log(newCourse)
+    enrollmentsDao.enrollUserInCourse(currentUser._id, newCourse._id);
+    res.json(newCourse);
+  };
+  app.post("/api/users/current/courses", createCourse);
+
+  const findCoursesForEnrolledUser = (req, res) => {
+    let { userId } = req.params;
+    if (userId === "current") {
+      const currentUser = req.session["currentUser"];
+      if (!currentUser) {
+        res.sendStatus(401);
+        return;
+      }
+      userId = currentUser._id;
+    }
+    const courses = courseDao.findCoursesForEnrolledUser(userId);
+    res.json(courses);
+  };
+  app.get("/api/users/:userId/courses", findCoursesForEnrolledUser);
 
   const signup = (req, res) => {
     const user = dao.findUserByUsername(req.body.username);
@@ -46,11 +85,11 @@ export default function UserRoutes(app) {
     res.sendStatus(200);
   };
   const profile = async (req, res) => {
-    console.log("Hello",  req)
-    console.log("This is req")
-    console.log(req)
-    console.log("This is res")
-    console.log(req)
+    console.log("Hello", req);
+    console.log("This is req");
+    console.log(req);
+    console.log("This is res");
+    console.log(req);
 
     const currentUser = req.session["currentUser"];
     if (!currentUser) {
