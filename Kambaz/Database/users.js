@@ -1,5 +1,19 @@
 export default [
   {
+    "_id": "123245",
+    "username": "admin",
+    "password": "admin",
+    "firstName": "Tony",
+    "lastName": "Stark",
+    "email": "tony@stark.com",
+    "dob": "1970-05-29T00:00:00.000Z",
+    "role": "ADMIN",
+    "loginId": "001234561S",
+    "section": "S305",
+    "lastActivity": "2020-10-01",
+    "totalActivity": "10:21:32"
+  },
+  {
     "_id": "123",
     "username": "professor",
     "password": "professor",
