@@ -7,7 +7,7 @@ import session from "express-session";
 import CourseRoutes from "./Kambaz/Courses/routes.js";
 import ModuleRoutes from "./Kambaz/Modules/routes.js";
 import AssignmentRoutes from "./Kambaz/Assignments/routes.js";
-import EnrollmentsRoutes from "./Kambaz/Enrollments/routes.js";
+// import EnrollmentsRoutes from "./Kambaz/Enrollments/routes.js";
 import mongoose from "mongoose";
 
 import "dotenv/config";
@@ -44,7 +44,7 @@ CourseRoutes(app);
 Lab5(app);
 ModuleRoutes(app);
 AssignmentRoutes(app);
-EnrollmentsRoutes(app);
+// EnrollmentsRoutes(app);
 
 Hello(app);
 
