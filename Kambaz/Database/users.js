@@ -1,22 +1,8 @@
 export default [
   {
-    "_id": "123245",
-    "username": "admin",
-    "password": "admin",
-    "firstName": "Tony",
-    "lastName": "Stark",
-    "email": "tony@stark.com",
-    "dob": "1970-05-29T00:00:00.000Z",
-    "role": "ADMIN",
-    "loginId": "001234561S",
-    "section": "S305",
-    "lastActivity": "2020-10-01",
-    "totalActivity": "10:21:32"
-  },
-  {
     "_id": "123",
-    "username": "professor",
-    "password": "professor",
+    "username": "faculty",
+    "password": "faculty",
     "firstName": "Tony",
     "lastName": "Stark",
     "email": "tony@stark.com",
@@ -29,8 +15,8 @@ export default [
   },
   {
     "_id": "234",
-    "username": "student#1",
-    "password": "student#1",
+    "username": "student",
+    "password": "student",
     "firstName": "Bruce",
     "lastName": "Wayne",
     "email": "bruce@wayne.com",
@@ -43,8 +29,8 @@ export default [
   },
   {
     "_id": "345",
-    "username": "ta#1",
-    "password": "teachingAssistant",
+    "username": "black_widow",
+    "password": "romanoff123",
     "firstName": "Natasha",
     "lastName": "Romanoff",
     "email": "natasha@avengers.com",
@@ -251,4 +237,4 @@ export default [
     "lastActivity": "2020-12-12",
     "totalActivity": "20:10:12"
   }
-]
+];

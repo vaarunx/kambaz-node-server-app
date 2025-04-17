@@ -5,18 +5,26 @@
 //     res.send(enrollments);
 //   });
 
-//   app.put("/api/enroll/:userId/:courseId", async (req, res) => {
-//     const { userId, courseId } = req.params;
-//     const status = await enrollmentsDao.enrollUserInCourse(userId, courseId);
-//     res.send(status);
+//   app.post("/api/enroll/:userId/courses/:courseId", async (req, res) => {
+//     let { uid, cid } = req.params;
+//    if (uid === "current") {
+//      const currentUser = req.session["currentUser"];
+//      uid = currentUser._id;
+//    }
+//    const status = await enrollmentsDao.enrollUserInCourse(uid, cid);
+//    res.send(status);
+
 //   });
 
-//   app.delete("/api/enroll/:userId/:courseId", async (req, res) => {
-//     const { userId, courseId } = req.params;
-//     const status = await enrollmentsDao.unenrollUserFromCourse(
-//       userId,
-//       courseId
-//     );
+//   app.delete("/api/enroll/:userId/courses/:courseId", async (req, res) => {
+//     let { uid, cid } = req.params;
+//    if (uid === "current") {
+//      const currentUser = req.session["currentUser"];
+//      uid = currentUser._id;
+//    }
+//    const status = await enrollmentsDao.unenrollUserFromCourse(uid, cid);
+//    res.send(status);
+
 //     res.send(status);
 //   });
 // }
